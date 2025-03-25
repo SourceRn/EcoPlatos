@@ -1,0 +1,73 @@
+.container {
+  position: relative;
+  z-index: 1;
+  color: white;
+
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  height: 50vh;
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.1); /* Transparente */
+  backdrop-filter: blur(10px); /* Efecto difuminado */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+header {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  color: #ddd;
+}
+
+form {
+  display: flex;
+  gap: 1rem;
+}
+
+input, .code-button{
+  border: none;
+  color: black;
+  border-radius: 5px;
+  font-size: 18px;
+}
+input {
+  width: 200px;
+  background: rgba(255, 255, 255, 1);
+  padding: 10px;
+}
+.code-button {
+  cursor: pointer;
+  background-color: rgb(55, 91, 236);
+  color: white;
+  padding: 10px 20px;
+}
+.code-button:hover {
+  background-color: rgb(55, 91, 236, 0.8);
+}
+
+.eco {
+  color: rgb(88, 237, 88);
+}
+.platos {
+  color: rgb(197, 193, 193);
+}
+
+.error-message {
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+}
