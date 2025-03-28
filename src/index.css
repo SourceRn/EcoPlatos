@@ -3,27 +3,21 @@
   line-height: 1.5;
   font-weight: 400;
 
+  /*
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  */
 
+  
   background-image: url("/plantsBackground.jpg");
+  background-size:cover;
   background-repeat: no-repeat;
-  background-size: cover;
   background-position: center;
+  
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-:root::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 101vh; /* 100% + 1vh to avoid scrollbars */
-  background: rgba(0, 0, 0, 0.4);
 }
