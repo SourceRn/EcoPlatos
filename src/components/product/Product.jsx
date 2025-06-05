@@ -2,7 +2,7 @@ import React from "react";
 import "./Product.css";
 import { motion } from "framer-motion";
 
-export default function Product({ onClose }) {
+export default function Product({ onClose, product }) {
   return (
     <motion.article
       className="product"
@@ -12,14 +12,14 @@ export default function Product({ onClose }) {
       transition={{ duration: 0.2 }}
     >
       <header className="product-header">
-        <h2 className="product-title">Plato#1 - PL032225906</h2>
+        <h2 className="product-title">{product.name} - #{product.id}</h2>
       </header>
       <main className="product-main">
         <ul className="product-list">
-          <li className="product-data">👨‍🏭 Fabricado por </li>
-          <li className="product-data">♻️ Hecho de </li>
-          <li className="product-data">🌍 Hecho en </li>
-          <li className="product-data">🌱 Tu producto ha ahorrado</li>
+          <li className="product-data">👨‍🏭 Fabricado por: {product.madeBy} </li>
+          <li className="product-data">♻️ Hecho de: {product.material}</li>
+          <li className="product-data">🌍 Hecho en: {product.madeIn}</li>
+          <li className="product-data">🌱 Tu producto ha ahorrado: {product.description}</li>
         </ul>
       </main>
       <footer className="product-footer">

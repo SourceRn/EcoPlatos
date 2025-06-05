@@ -7,8 +7,9 @@ function App() {
   const [showProduct, setShowProduct] = useState(false);
   const [productCode, setProductCode] = useState("");
   const [error, setError] = useState("");
+  const [product, setProduct] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validación: No permitir que el input esté vacío
@@ -19,19 +20,35 @@ function App() {
 
     // Si pasa la validación, ocultar el error y renderizar el producto
     setError("");
-    setShowProduct(true);
+
+    try {
+      const response = await fetch(`http://localhost:8080/api/products/${productCode}`);
+      if (!response.ok) {
+        throw new Error("Producto no encontrado");
+      }
+      const data = await response.json();
+      setProduct(data);
+      setShowProduct(true);
+    } catch (err) {
+      setError("Error al buscar el producto. Por favor, intenta de nuevo.");
+      setShowProduct(false);
+      return;
+    }
+
   };
 
   return (
     <div className='container'>
       <AnimatePresence>
-        {showProduct && <Product key="product" onClose={() => setShowProduct(false)} />}
+        {showProduct && product && (
+          <Product key="product" product={product} onClose={() => setShowProduct(false)} />
+        )}
       </AnimatePresence>
       <article className="app">
         <header>
           <h1>
-            <span className='eco'>Eco</span>
-            <span className='platos'>Platos</span> 🍽️
+            <span className='eco'>Cuchar</span>
+            <span className='platos'>ITA</span> 🍽️
           </h1>
         </header>
         <main>
